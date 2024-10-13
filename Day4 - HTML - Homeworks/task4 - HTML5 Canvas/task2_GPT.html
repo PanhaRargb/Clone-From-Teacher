@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ra Panha - Freelancer Service WEB Development</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+            cursor: crosshair;
+        }
+        .controls {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Basic Drawing App</h1>
+
+<div class="controls">
+    <label for="color">Choose Color:</label>
+    <input type="color" id="color" value="#000000">
+    <label for="lineWidth">Line Width:</label>
+    <input type="range" id="lineWidth" min="1" max="10" value="2">
+    <button onclick="clearCanvas()">Clear</button>
+</div>
+
+<canvas id="drawingCanvas" width="600" height="400"></canvas>
+
+<script>
+    const canvas = document.getElementById('drawingCanvas');
+    const ctx = canvas.getContext('2d');
+    let drawing = false;
+    let lastX = 0;
+    let lastY = 0;
+
+    // Update color and line width based on user input
+    const colorPicker = document.getElementById('color');
+    const lineWidthSlider = document.getElementById('lineWidth');
+
+    // Function to start drawing
+    canvas.addEventListener('mousedown', (e) => {
+        drawing = true;
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+    });
+
+    // Function to stop drawing
+    canvas.addEventListener('mouseup', () => {
+        drawing = false;
+        ctx.beginPath(); // Reset path after completing the line
+    });
+
+    // Function to stop drawing when mouse leaves canvas
+    canvas.addEventListener('mouseout', () => {
+        drawing = false;
+        ctx.beginPath();
+    });
+
+    // Function to draw on canvas
+    canvas.addEventListener('mousemove', (e) => {
+        if (!drawing) return; // Exit if mouse is not clicked
+        ctx.strokeStyle = colorPicker.value;
+        ctx.lineWidth = lineWidthSlider.value;
+        ctx.lineCap = 'round'; // Smooth ends of lines
+        ctx.lineJoin = 'round'; // Smooth joins between lines
+
+        // Draw the line
+        ctx.beginPath();
+        ctx.moveTo(lastX, lastY); // Start from last mouse position
+        ctx.lineTo(e.offsetX, e.offsetY); // Draw to current mouse position
+        ctx.stroke(); // Render the stroke
+
+        // Update the last mouse position
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+    });
+
+    // Function to clear the canvas
+    function clearCanvas() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+</script>
+
+</body>
+</html>
