@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ra Panha - Freelancer Service WEB Development</title>
+</head>
+<body>
+<canvas id="myCanvas" width="400" height="300"></canvas>
+
+<script>
+    var canvas = document.getElementById('myCanvas');
+    var ctx = canvas.getContext('2d');
+
+    var ball = {
+        x: 200,
+        y: 150,
+        radius: 10,
+        dx: 2,
+        dy: -2,
+        color: 'blue'
+    };
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        ctx.beginPath();
+        ctx.arc(ball.x, ball.y, ball.radius, 0, 2 * Math.PI);
+        ctx.fillStyle = ball.color;
+        ctx.fill();
+
+        ball.x += ball.dx;
+        ball.y += ball.dy;
+
+        if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) {
+            ball.dx = -ball.dx;
+            ball.color = getRandomColor();
+        }
+
+        if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
+            ball.dy = -ball.dy;
+            ball.color = getRandomColor();
+        }
+    }
+
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+    function animate() {
+        draw();
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+</script>
+</body>
+</html>
