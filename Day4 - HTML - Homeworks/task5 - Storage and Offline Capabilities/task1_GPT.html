@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ra Panha - Freelancer Service WEB Development</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+<h1 style="text-align: center;">Bouncing Ball Game</h1>
+
+<canvas id="gameCanvas" width="600" height="400"></canvas>
+
+<script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Ball properties
+    let ball = {
+        x: canvas.width / 2,
+        y: canvas.height / 2,
+        radius: 20,
+        dx: 4,  // Change in x (horizontal speed)
+        dy: 3,  // Change in y (vertical speed)
+        color: getRandomColor()
+    };
+
+    // Function to generate a random color
+    function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+    // Function to draw the ball
+    function drawBall() {
+        ctx.beginPath();
+        ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+        ctx.fillStyle = ball.color;
+        ctx.fill();
+        ctx.closePath();
+    }
+
+    // Function to update the ball's position and check for edge collisions
+    function updateBall() {
+        // Clear the canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Draw the ball
+        drawBall();
+
+        // Update ball position
+        ball.x += ball.dx;
+        ball.y += ball.dy;
+
+        // Detect collision with left or right walls
+        if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) {
+            ball.dx = -ball.dx;  // Reverse horizontal direction
+            ball.color = getRandomColor();  // Change color
+        }
+
+        // Detect collision with top or bottom walls
+        if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
+            ball.dy = -ball.dy;  // Reverse vertical direction
+            ball.color = getRandomColor();  // Change color
+        }
+
+        // Request the next frame
+        requestAnimationFrame(updateBall);
+    }
+
+    // Start the animation loop
+    updateBall();
+</script>
+
+</body>
+</html>
