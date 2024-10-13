@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ra Panha - Freelance Service WEB Development</title>
+    <style>
+        /* Style for custom controls */
+        .controls {
+            margin-top: 10px;
+        }
+        .controls button {
+            margin-right: 5px;
+            padding: 5px 10px;
+            font-size: 16px;
+        }
+        .controls input[type="range"] {
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+<h1>My First Webpage</h1>
+
+<p>One of my favorite hobbies is reading. It allows me to explore new worlds, learn different perspectives, and relax after a long day. Whether it's fiction, science, or history, reading always brings something new to the table.</p>
+
+<h2>Things I Enjoy About Reading:</h2>
+<ul>
+    <li>It helps me expand my knowledge and vocabulary.</li>
+    <li>It's a great way to relax and unwind.</li>
+    <li>It sparks my imagination and creativity.</li>
+</ul>
+
+<h2>Related Media</h2>
+
+<!-- Embedding YouTube video -->
+<h3>Watch this video about the benefits of reading:</h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/T-ZD-w_q14A?si=phvEuCl3jB3LqD73" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</iframe>
+
+<!-- Custom video controls -->
+<div class="controls">
+    <button onclick="playVideo()">Play</button>
+    <button onclick="pauseVideo()">Pause</button>
+    <label for="video-volume">Volume:</label>
+    <input type="range" id="video-volume" min="0" max="1" step="0.1" value="1" onchange="setVideoVolume(this.value)">
+</div>
+
+<!-- Embedding an audio file -->
+<h3>Listen to a relaxing audio file while reading:</h3>
+<audio id="audio-file" controls>
+    <source src="80_'s Workout (Royalty Free Synthwave).mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<!-- Custom audio controls -->
+<div class="controls">
+    <button onclick="playAudio()">Play</button>
+    <button onclick="pauseAudio()">Pause</button>
+    <label for="audio-volume">Volume:</label>
+    <input type="range" id="audio-volume" min="0" max="1" step="0.1" value="1" onchange="setAudioVolume(this.value)">
+</div>
+
+<script>
+    // YouTube video custom controls
+    const video = document.getElementById('youtube-video').contentWindow;
+
+    function playVideo() {
+        video.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+    }
+
+    function pauseVideo() {
+        video.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+    }
+
+    function setVideoVolume(volume) {
+        video.postMessage(`{"event":"command","func":"setVolume","args":[${volume * 100}]}`, '*');
+    }
+
+    // Audio file custom controls
+    const audio = document.getElementById('audio-file');
+
+    function playAudio() {
+        audio.play();
+    }
+
+    function pauseAudio() {
+        audio.pause();
+    }
+
+    function setAudioVolume(volume) {
+        audio.volume = volume;
+    }
+</script>
+</body>
+</html>
