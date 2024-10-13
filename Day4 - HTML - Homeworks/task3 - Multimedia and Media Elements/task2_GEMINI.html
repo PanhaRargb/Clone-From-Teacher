@@ -1,0 +1,34 @@
+<section>
+    <h2>My Favorite Hobby</h2>
+    <p>I love spending my free time [your favorite hobby]. Here's a video that showcases the fun and excitement of this activity:</p>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/T-ZD-w_q14A?si=DZMV61gjmNyuLcSi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    <p>And here's a relaxing soundtrack to accompany my hobby:</p>
+    <audio id="audioPlayer" controls>
+        <source src="80_'s Workout (Royalty Free Synthwave).mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div id="audioControls">
+        <button onclick="playPauseAudio()">Play/Pause</button>
+        <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="1" onchange="updateVolume()">
+    </div>
+</section>
+
+<script>
+    var audioPlayer = document.getElementById("audioPlayer");
+    var volumeControl = document.getElementById("volumeControl");
+
+    function playPauseAudio() {
+        if (audioPlayer.paused) {
+            audioPlayer.play();
+        } else {
+            audioPlayer.pause();
+        }
+    }
+
+    function updateVolume() {
+        audioPlayer.volume = volumeControl.value;
+    }
+</script>
