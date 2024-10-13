@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ra Panha - Freelancer Service WEB Development</title>
+</head>
+<body>
+<button onclick="getLocation()">Show My Location</button>
+<p id="location"></p>
+
+<script>
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            document.getElementById("location").innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    function showPosition(position) {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+        document.getElementById("location").innerHTML = "Latitude: " + latitude +
+            ", Longitude: " + longitude;
+    }
+</script>
+</body>
+</html>
