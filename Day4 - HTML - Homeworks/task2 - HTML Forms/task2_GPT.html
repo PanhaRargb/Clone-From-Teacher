@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Information Form</title>
+</head>
+<body>
+    <h1>Contact Information</h1>
+
+    <form action="/submit_form" method="post">
+        <!-- Name field -->
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <!-- Email field with validation -->
+        <label for="email">Email Address:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        <span id="emailError" style="color: red;"></span><br>
+
+        <!-- Phone field with numeric validation -->
+        <label for="phone">Phone Number:</label><br>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]+" required><br>
+        <span id="phoneError" style="color: red;"></span><br><br>
+
+        <!-- Submit button -->
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        // JavaScript to provide additional validation for email and phone fields
+        const form = document.querySelector('form');
+        const emailInput = document.getElementById('email');
+        const phoneInput = document.getElementById('phone');
+        const emailError = document.getElementById('emailError');
+        const phoneError = document.getElementById('phoneError');
+
+        form.addEventListener('submit', (event) => {
+            let valid = true;
+
+            // Clear previous error messages
+            emailError.textContent = '';
+            phoneError.textContent = '';
+
+            // Validate email format
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (!emailInput.value.match(emailPattern)) {
+                emailError.textContent = 'Please enter a valid email address.';
+                valid = false;
+            }
+
+            // Validate phone number to contain only numeric values
+            const phonePattern = /^[0-9]+$/;
+            if (!phoneInput.value.match(phonePattern)) {
+                phoneError.textContent = 'Phone number should contain only numbers.';
+                valid = false;
+            }
+
+            // Prevent form submission if validation fails
+            if (!valid) {
+                event.preventDefault();
+            }
+        });
+    </script>
+
+</body>
+</html>
