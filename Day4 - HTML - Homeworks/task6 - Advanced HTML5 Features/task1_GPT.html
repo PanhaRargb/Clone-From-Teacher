@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ra Panha - Freelancer Service WEB Development</title>
+    <style>
+        body {
+            transition: background-color 0.5s ease; /* Smooth transition */
+        }
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        h1 {
+            font-family: Arial, sans-serif;
+        }
+        label {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Select Your Theme Color</h1>
+    <label for="colorPicker">Choose a background color:</label>
+    <input type="color" id="colorPicker">
+    <p>Your selected color will be saved for your next visit!</p>
+</div>
+
+<script>
+    // Function to apply the saved color from localStorage
+    function applySavedColor() {
+        const savedColor = localStorage.getItem('themeColor');
+        if (savedColor) {
+            document.body.style.backgroundColor = savedColor;
+            document.getElementById('colorPicker').value = savedColor; // Set the color picker to the saved color
+        }
+    }
+
+    // Function to save the selected color in localStorage
+    function saveColor() {
+        const selectedColor = document.getElementById('colorPicker').value;
+        document.body.style.backgroundColor = selectedColor; // Change background color
+        localStorage.setItem('themeColor', selectedColor); // Save to localStorage
+    }
+
+    // Event listener for the color picker
+    document.getElementById('colorPicker').addEventListener('input', saveColor);
+
+    // Apply the saved color when the page loads
+    applySavedColor();
+</script>
+
+</body>
+</html>
