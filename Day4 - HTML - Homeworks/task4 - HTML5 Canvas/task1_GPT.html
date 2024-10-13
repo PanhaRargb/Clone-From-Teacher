@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ra Panha - Freelancer Service WEB Development</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<h1>Canvas Drawing Example</h1>
+
+<!-- Adding the canvas element -->
+<canvas id="myCanvas" width="400" height="300"></canvas>
+
+<script>
+    // Get the canvas element and its drawing context
+    const canvas = document.getElementById('myCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Drawing a rectangle
+    ctx.fillStyle = '#FF0000'; // Fill color for the rectangle
+    ctx.fillRect(50, 50, 150, 100); // x, y, width, height
+
+    // Drawing a circle
+    ctx.beginPath();
+    ctx.arc(300, 150, 50, 0, 2 * Math.PI); // x, y, radius, start angle, end angle
+    ctx.fillStyle = '#0000FF'; // Fill color for the circle
+    ctx.fill(); // Fill the circle
+
+    // Drawing a line
+    ctx.beginPath();
+    ctx.moveTo(50, 200); // Starting point (x, y)
+    ctx.lineTo(350, 200); // Ending point (x, y)
+    ctx.strokeStyle = '#00FF00'; // Color of the line
+    ctx.lineWidth = 5; // Thickness of the line
+    ctx.stroke(); // Draw the line
+</script>
+
+</body>
+</html>
