@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ra Panha - Freelancer Service WEB Development</title>
+</head>
+<body>
+<select id="themeSelect" onchange="changeTheme()">
+    <option value="red">Red</option>
+    <option value="blue">Blue</option>
+    <option value="green">Green</option>
+</select>
+
+<script>
+    function changeTheme() {
+        var selectedTheme = document.getElementById("themeSelect").value;
+        localStorage.setItem("theme", selectedTheme);
+        document.body.style.backgroundColor = selectedTheme;
+    }
+
+    // Load the saved theme on page load
+    window.onload = function() {
+        var savedTheme = localStorage.getItem("theme");
+        if (savedTheme) {
+            document.body.style.backgroundColor = savedTheme;
+            document.getElementById("themeSelect").value = savedTheme;
+        }
+    };
+</script>
+</body>
+</html>
