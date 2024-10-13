@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ra Panha - Freelancer Service WEB Development</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+            display: block;
+            margin: 0 auto;
+        }
+        #location {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<h1 style="text-align: center;">Bouncing Ball Game with Geolocation</h1>
+
+<!-- Canvas for the bouncing ball game -->
+<canvas id="gameCanvas" width="600" height="400"></canvas>
+
+<!-- Button to get user's location -->
+<div style="text-align: center; margin-top: 20px;">
+    <button onclick="getLocation()">Show My Location</button>
+</div>
+
+<!-- Section to display user's location -->
+<div id="location">Click the button to display your current location.</div>
+
+<script>
+    // Ball game code (same as before)
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+
+    let ball = {
+        x: canvas.width / 2,
+        y: canvas.height / 2,
+        radius: 20,
+        dx: 4,
+        dy: 3,
+        color: getRandomColor()
+    };
+
+    function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+    function drawBall() {
+        ctx.beginPath();
+        ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+        ctx.fillStyle = ball.color;
+        ctx.fill();
+        ctx.closePath();
+    }
+
+    function updateBall() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawBall();
+
+        ball.x += ball.dx;
+        ball.y += ball.dy;
+
+        if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) {
+            ball.dx = -ball.dx;
+            ball.color = getRandomColor();
+        }
+
+        if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
+            ball.dy = -ball.dy;
+            ball.color = getRandomColor();
+        }
+
+        requestAnimationFrame(updateBall);
+    }
+
+    updateBall();
+
+    // Geolocation code
+    function getLocation() {
+        const locationDiv = document.getElementById('location');
+
+        // Check if Geolocation is supported
+        if (navigator.geolocation) {
+            locationDiv.innerHTML = "Locating...";
+            navigator.geolocation.getCurrentPosition(showPosition, showError);
+        } else {
+            locationDiv.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    // Function to display the user's coordinates
+    function showPosition(position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        const locationDiv = document.getElementById('location');
+
+        locationDiv.innerHTML = `Latitude: ${latitude.toFixed(5)}<br>Longitude: ${longitude.toFixed(5)}`;
+    }
+
+    // Function to handle errors
+    function showError(error) {
+        const locationDiv = document.getElementById('location');
+
+        switch(error.code) {
+            case error.PERMISSION_DENIED:
+                locationDiv.innerHTML = "User denied the request for Geolocation.";
+                break;
+            case error.POSITION_UNAVAILABLE:
+                locationDiv.innerHTML = "Location information is unavailable.";
+                break;
+            case error.TIMEOUT:
+                locationDiv.innerHTML = "The request to get user location timed out.";
+                break;
+            case error.UNKNOWN_ERROR:
+                locationDiv.innerHTML = "An unknown error occurred.";
+                break;
+        }
+    }
+</script>
+
+</body>
+</html>
