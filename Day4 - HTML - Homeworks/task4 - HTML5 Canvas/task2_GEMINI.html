@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ra Panha - Freelancer Service WEB Development</title>
+</head>
+<body>
+<canvas id="myCanvas" width="500" height="300"></canvas>
+
+<script>
+    var canvas = document.getElementById('myCanvas');
+    var ctx = canvas.getContext('2d');
+
+    var isDrawing = false;
+    var lastX = 0;
+    var lastY = 0;
+
+    canvas.addEventListener('mousedown', function(e) {
+        isDrawing = true;
+        lastX = e.clientX - this.offsetLeft;
+        lastY = e.clientY - this.offsetTop;
+    });
+
+    canvas.addEventListener('mousemove', function(e) {
+        if (isDrawing) {
+            var currentX = e.clientX - this.offsetLeft;
+            var currentY = e.clientY - this.offsetTop;
+
+            ctx.beginPath();
+            ctx.moveTo(lastX, lastY);
+            ctx.lineTo(currentX, currentY);
+            ctx.stroke();
+
+            lastX = currentX;
+            lastY = currentY;
+        }
+    });
+
+    canvas.addEventListener('mouseup', function() {
+        isDrawing = false;
+    });
+
+    canvas.addEventListener('mouseout', function() {
+        isDrawing = false;
+    });
+</script>
+</body>
+</html>
