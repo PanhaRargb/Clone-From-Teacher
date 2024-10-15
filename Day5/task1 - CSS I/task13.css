@@ -1,0 +1,44 @@
+/* Define CSS Variables */
+:root {
+    --primary-color: #3498db; /* Blue */
+    --secondary-color: #2ecc71; /* Green */
+    --text-color: #333; /* Dark Gray */
+    --font-size: 16px; /* Base Font Size */
+    --header-bg: #f4f4f4; /* Light Gray */
+}
+
+/* Apply variables in styles */
+body {
+    font-family: Arial, sans-serif;
+    color: var(--text-color);
+    font-size: var(--font-size);
+    margin: 0;
+}
+
+.header {
+    background-color: var(--header-bg);
+    padding: 20px;
+    text-align: center;
+}
+
+.content {
+    padding: 20px;
+}
+
+.content h2 {
+    color: var(--primary-color);
+}
+
+.footer {
+    background-color: var(--secondary-color);
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Changing the value of variables for different contexts */
+@media (max-width: 600px) {
+    :root {
+        --font-size: 14px; /* Smaller font size for mobile */
+    }
+}
