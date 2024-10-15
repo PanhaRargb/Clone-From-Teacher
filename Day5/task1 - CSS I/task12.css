@@ -1,0 +1,41 @@
+/* Basic Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.header, .footer {
+    background-color: #3498db;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Main Content */
+.main-content {
+    display: flex;            /* Enable flexbox layout */
+    flex-wrap: wrap;         /* Allow items to wrap onto multiple lines */
+    justify-content: space-around;  /* Distribute space evenly */
+    align-items: center;     /* Align items vertically in the center */
+    margin: 20px;
+}
+
+/* Box Styles */
+.box {
+    background-color: #e0e0e0;
+    color: #333;
+    border: 2px solid #333;
+    padding: 20px;
+    flex: 1 1 30%;           /* Flex-grow, flex-shrink, flex-basis */
+    margin: 10px;
+    text-align: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .box {
+        flex: 1 1 100%;       /* Stacks boxes vertically on small screens */
+    }
+}
