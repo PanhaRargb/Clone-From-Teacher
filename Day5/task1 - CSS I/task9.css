@@ -1,0 +1,112 @@
+/* Basic styles for the body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Text Alignment Section */
+.text-alignment h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.text-alignment p {
+    font-size: 18px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* Text Alignments */
+.left-align {
+    text-align: left;
+}
+
+.center-align {
+    text-align: center;
+}
+
+.right-align {
+    text-align: right;
+}
+
+/* Vertical Alignment Section using Flexbox */
+.vertical-alignment h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Flexbox container for vertical alignment */
+.flex-container {
+    display: flex;
+    justify-content: space-around;  /* Horizontal space between boxes */
+    align-items: center;  /* Vertically center items */
+    height: 200px;
+    background-color: #e0e0e0;
+    border: 2px solid #ccc;
+}
+
+/* Flexbox items */
+.box {
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    font-size: 18px;
+    text-align: center;
+}
+
+/* Display Properties Section */
+.display-properties h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Block Element */
+.block {
+    display: block;
+    background-color: #e74c3c;
+    color: white;
+    padding: 20px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+/* Inline Element */
+.inline {
+    display: inline;
+    background-color: #2ecc71;
+    color: white;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+/* Inline-Block Element */
+.inline-block {
+    display: inline-block;
+    background-color: #9b59b6;
+    color: white;
+    padding: 20px;
+    margin-right: 10px;
+}
+
+/* Flexbox Layout */
+.flexbox-container {
+    display: flex;
+    justify-content: space-between;  /* Horizontal alignment */
+    margin-top: 20px;
+}
+
+.flexbox-container .flex-item {
+    background-color: #f39c12;
+    color: white;
+    padding: 20px;
+    margin-right: 10px;
+    text-align: center;
+    flex: 1;
+}
