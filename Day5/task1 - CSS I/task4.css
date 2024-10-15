@@ -1,0 +1,18 @@
+/* Original button style */
+button {
+    width: 50px; /* This rule is conflicting with the intended width */
+    padding: 10px;
+    display: inline-block;
+}
+
+/* Fixed button style with higher specificity */
+button.myButton {
+    width: 100px; /* Corrected width */
+}
+
+/* Centering the button container */
+.button-container {
+    width: 200px;
+    margin: 0 auto; /* Centers the container */
+    text-align: center; /* Aligns the button inside the container */
+}
