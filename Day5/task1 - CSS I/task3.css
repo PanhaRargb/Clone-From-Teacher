@@ -1,0 +1,35 @@
+/* Element Selector */
+h1 {
+    color: darkblue;  /* Targets all <h1> elements and sets the text color */
+    font-size: 24px;
+    text-align: center;
+}
+
+/* Class Selector */
+.highlight {
+    background-color: yellow;  /* Applies a yellow background to elements with class="highlight" */
+    padding: 10px;
+}
+
+/* ID Selector */
+#uniqueParagraph {
+    color: green;  /* Targets the element with id="uniqueParagraph" */
+    font-style: italic;
+}
+
+/* Attribute Selector */
+input[type="text"] {
+    border: 2px solid black;  /* Targets <input> elements where type is "text" */
+    padding: 5px;
+}
+
+input[type="password"] {
+    border: 2px solid red;  /* Targets <input> elements where type is "password" */
+    padding: 5px;
+}
+
+/* Pseudo-class Selector */
+a:hover {
+    color: orange;  /* Changes the color of the link when hovered */
+    text-decoration: underline;
+}
