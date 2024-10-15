@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colors and Backgrounds in CSS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1>CSS Colors and Backgrounds</h1>
+</header>
+
+<section class="color-examples">
+    <h2>Text Colors</h2>
+    <p class="hex-color">This text is colored using a Hex value.</p>
+    <p class="rgb-color">This text is colored using an RGB value.</p>
+    <p class="hsl-color">This text is colored using an HSL value.</p>
+</section>
+
+<section class="background-examples">
+    <h2>Backgrounds</h2>
+    <div class="solid-bg">Solid Color Background</div>
+    <div class="gradient-bg">Gradient Background</div>
+    <div class="image-bg">Image Background</div>
+</section>
+
+</body>
+</html>
