@@ -1,1 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ra Panha - Freelancer Service WEB Development</title>
+    <style>
+        /* General styling for the page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        /* Table styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        /* Div layout styling */
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .container div {
+            width: 30%;
+            padding: 20px;
+            background-color: lightblue;
+            margin: 10px;
+            text-align: center;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .container div {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h1>Tables vs Divs for Layout</h1>
+
+<!-- Table Layout -->
+<h2>Product Table</h2>
+<table>
+    <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Stock</th>
+    </tr>
+    <tr>
+        <td>Product 1</td>
+        <td>$10</td>
+        <td>100</td>
+    </tr>
+    <tr>
+        <td>Product 2</td>
+        <td>$20</td>
+        <td>50</td>
+    </tr>
+    <tr>
+        <td>Product 3</td>
+        <td>$15</td>
+        <td>75</td>
+    </tr>
+</table>
+
+<!-- Div Layout -->
+<h2>Div Layout Section</h2>
+<div class="container">
+    <div>
+        <h3>Section 1</h3>
+        <p>This is the content for section 1. It is inside a flexbox layout.</p>
+    </div>
+    <div>
+        <h3>Section 2</h3>
+        <p>This is the content for section 2. The layout adjusts based on screen size.</p>
+    </div>
+    <div>
+        <h3>Section 3</h3>
+        <p>This is the content for section 3. Resize the browser to see it adapt.</p>
+    </div>
+</div>
+
+</body>
+</html>
 
