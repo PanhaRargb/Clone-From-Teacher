@@ -1,0 +1,16 @@
+GPT
+  - More detail than GEMINI
+  - Explanation of the 
+    -Defining CSS Variables:
+    -Using CSS Variables:
+    -Theming with CSS Variables:
+
+      
+ GEMINI
+  - less detail
+  - Key benefits of using CSS variables:
+- Centralized control: Easily manage styles by modifying variables in one place.
+- Consistency: Ensure consistent styling across your website or application.
+- Efficiency: Avoid repetitive style declarations.
+- Maintainability: Make it easier to update and maintain your stylesheet.
+- Themeability: Create different themes or skins by simply changing variable values.
