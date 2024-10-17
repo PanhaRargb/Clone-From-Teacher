@@ -1,1 +1,61 @@
+// _variables.scss
+$primary-color: #3498db;
+$card-bg-color: #f8f9fa;
+$font-family: Arial, sans-serif;
+$border-radius: 8px;
+$button-bg-color: #e74c3c;
+$button-hover-bg-color: darken($button-bg-color, 10%);
+
+// _mixins.scss
+@mixin box-shadow($x, $y, $blur, $color) {
+  box-shadow: $x $y $blur $color;
+}
+
+// _card.scss
+.card {
+  background-color: $card-bg-color;
+  border-radius: $border-radius;
+  font-family: $font-family;
+  padding: 20px;
+  width: 300px;
+  @include box-shadow(0px, 4px, 10px, rgba(0, 0, 0, 0.1));
+
+  &__image {
+    width: 100%;
+    height: auto;
+    border-radius: $border-radius;
+  }
+
+  &__title {
+    font-size: 1.5em;
+    margin-top: 10px;
+    color: $primary-color;
+  }
+
+  &__description {
+    font-size: 1em;
+    margin: 10px 0;
+    color: #333;
+  }
+
+  &__button {
+    background-color: $button-bg-color;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: $border-radius;
+    cursor: pointer;
+    text-align: center;
+
+    &:hover {
+      background-color: $button-hover-bg-color;
+    }
+  }
+}
+
+// main.scss
+@import 'variables';
+@import 'mixins';
+@import 'card';
+
 
