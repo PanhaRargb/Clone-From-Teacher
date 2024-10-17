@@ -1,1 +1,73 @@
+// _variables.scss
+$light-bg: #ffffff;
+$light-text: #000000;
+$dark-bg: #000000;
+$dark-text: #ffffff;
+
+// Define theme variables
+$theme-light: (
+  background: $light-bg,
+  text: $light-text,
+);
+
+$theme-dark: (
+  background: $dark-bg,
+  text: $dark-text,
+);
+// _theme.scss
+@import 'variables';
+
+// Mixin to apply theme styles
+@mixin theme($theme) {
+  background-color: map-get($theme, background);
+  color: map-get($theme, text);
+}
+
+// Light theme styles
+.light-theme {
+  @include theme($theme-light);
+}
+
+// Dark theme styles
+.dark-theme {
+  @include theme($theme-dark);
+}
+// styles.scss
+@import 'variables';
+@import 'theme';
+
+// Default to light theme
+body {
+  @include theme($theme-light);
+}
+
+// Apply theme classes
+.light-theme {
+  @include theme($theme-light);
+}
+
+.dark-theme {
+  @include theme($theme-dark);
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Theme Switcher</title>
+</head>
+<body class="light-theme">
+    <h1>Welcome to the Theme Switcher!</h1>
+    <button id="theme-toggle">Toggle Theme</button>
+
+    <script>
+        const button = document.getElementById('theme-toggle');
+        button.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            document.body.classList.toggle('light-theme');
+        });
+    </script>
+</body>
+</html>
 
