@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Variables Example</title>
+  <style>
+    /* Define CSS variables at the root level */
+    :root {
+      --main-bg-color: lightblue;
+      --main-text-color: darkblue;
+      --main-padding: 20px;
+      --border-radius: 10px;
+    }
+
+    /* Use CSS variables in elements */
+    body {
+      background-color: var(--main-bg-color);
+      color: var(--main-text-color);
+      font-family: Arial, sans-serif;
+      padding: var(--main-padding);
+    }
+
+    .container {
+      background-color: white;
+      border-radius: var(--border-radius);
+      padding: var(--main-padding);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      color: var(--main-text-color);
+    }
+
+    p {
+      margin: var(--main-padding) 0;
+    }
+
+    /* Theming: Override variables locally for a specific section */
+    .dark-theme {
+      --main-bg-color: darkslategray;
+      --main-text-color: lightgray;
+      --border-radius: 5px;
+    }
+
+    /* Apply a new theme for the dark-theme section */
+    .dark-theme body {
+      background-color: var(--main-bg-color);
+      color: var(--main-text-color);
+    }
+
+    .dark-theme .container {
+      background-color: #333;
+      color: var(--main-text-color);
+      border-radius: var(--border-radius);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>CSS Variables Example</h1>
+    <p>This page uses CSS variables to maintain consistent styling for background, text, and padding.</p>
+  </div>
+
+  <!-- Section with a different theme using overridden variables -->
+  <div class="dark-theme">
+    <div class="container">
+      <h1>Dark Theme</h1>
+      <p>This section has a dark theme, overriding the default CSS variables.</p>
+    </div>
+  </div>
+
+</body>
+</html>
+
