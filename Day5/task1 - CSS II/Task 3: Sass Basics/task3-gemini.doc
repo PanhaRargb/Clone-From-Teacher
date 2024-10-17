@@ -1,0 +1,26 @@
+// variables.scss
+$primary-color: #333;
+$font-family: Arial, sans-serif;
+
+// mixins.scss
+@mixin border-radius($radius) {
+  border-radius: $radius;
+}
+
+// button.scss
+.button {
+  background-color: $primary-color;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  @include border-radius(5px);
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
+
+// main.scss
+@import "variables";
+@import "mixins";
+@import "button";
