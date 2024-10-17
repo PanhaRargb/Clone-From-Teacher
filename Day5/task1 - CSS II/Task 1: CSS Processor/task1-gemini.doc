@@ -1,0 +1,15 @@
+// Sass code
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+
+.button {
+  background-color: $primary-color;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.secondary-button {
+  background-color: $secondary-color;
+}
