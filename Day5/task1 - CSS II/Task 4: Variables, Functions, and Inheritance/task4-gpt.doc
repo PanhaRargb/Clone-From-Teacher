@@ -1,0 +1,17 @@
+// Declaring variables
+$primary-color: #3498db;
+$font-size-base: 16px;
+$font-family: 'Arial, sans-serif';
+
+// Using variables in styles
+body {
+  color: $primary-color;
+  font-size: $font-size-base;
+  font-family: $font-family;
+}
+
+h1 {
+  color: darken($primary-color, 10%); // Using function with a variable
+  font-size: $font-size-base * 2;
+}
+
