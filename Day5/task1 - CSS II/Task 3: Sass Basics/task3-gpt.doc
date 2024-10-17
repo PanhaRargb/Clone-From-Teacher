@@ -1,0 +1,14 @@
+// Button styling
+.button {
+  padding: 10px 20px;
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-family: $font-stack;
+  
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
+
